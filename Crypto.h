@@ -31,7 +31,7 @@ namespace Crypto
 		// Getters
 		std::string getName() const;
 		std::string getPublicKeyPath() const;
-		std::string getPrivateKeyPath() const;
+		//std::string getPrivateKeyPath() const;
 		std::string getAESEncryptedFile() const;
 		std::string getAESDecryptedFile() const;
 		std::string getRSAEncryptedFile() const;
@@ -101,13 +101,9 @@ namespace Crypto
 
 
 
-		void RSASignFile(const std::string& inputFile, RSA* key);
+		void RSASignFile(const std::string& inputFile);
 
-		void RSASignFile(const std::string& inputFile, const std::string& keyFile);
-
-		void RSASignData(const std::string& inputData, RSA* key);
-
-		void RSASignData(const std::string& inputData, const std::string& keyFile);
+		void RSASignData(const std::string& inputData);
 
 
 
@@ -119,11 +115,13 @@ namespace Crypto
 
 		bool RSAVerifyData(const std::string& inputData, const std::string& keyFile);
 
-		std::pair<std::string, bool> SignAndEncryptFile(const std::string& inputFile, const std::string& keyFile);
+		std::pair<std::string, bool> SignAndEncryptFile(const std::string& inputFile);
 
-		std::pair<std::string, bool> SignAndEncryptData(const std::string& inputData, const std::string& keyFile);
+		std::pair<std::string, bool> SignAndEncryptData(const std::string& inputData);
 
 		std::pair<std::string, bool> DecryptAndVerifyFile(const std::string& inputFile, const std::string& keyFile);
+
+		std::pair<std::string, bool> DecryptAndVerifyData(const std::string& inputData, const std::string& keyFile);
 
 		void generateAESKey();
 
